@@ -1,0 +1,2 @@
+PowerShell -ExecutionPolicy RemoteSigned \\nki-fs01\EXCP_DATA\ishikawa\dl_setup\dl_setup.ps1
+PowerShell -ExecutionPolicy RemoteSigned \\nki-fs01\EXCP_DATA\ishikawa\dl_setup\dl_setup2.ps1
