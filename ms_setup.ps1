@@ -10,6 +10,9 @@ Function New-Folder($path) {
 
 # Setup nakai-scan-app-settings repo
 Set-Location C:\Ripcord\code
+if (Test-Path C:\Ripcord\code\nakai-scanapp-settings) {
+    Remove-Item C:\Ripcord\code\nakai-scanapp-settings -Recurse -Force
+}
 git clone git@github.com:MoffettData/nakai-scanapp-settings.git
 Set-Location C:\Ripcord\code\nakai-scanapp-settings
 

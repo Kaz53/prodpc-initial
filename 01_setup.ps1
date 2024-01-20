@@ -26,6 +26,8 @@ $cmd = "choco.exe"
 if (-Not (Find-Command $cmd)){
     Write-Host "Installing Chocolatey ..."
     Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+} else {
+    choco upgrade chocolatey
 }
 
 # Git
@@ -33,5 +35,7 @@ $cmd = "git.exe"
 if (-Not (Find-Command $cmd)){
     Write-Host "Installing git from Chocolatey..."
     choco install git -y
+} else {
+    choco upgrade git -y
 }
 

@@ -49,6 +49,10 @@ Copy-Item \\nki-fs01\EXCP_DATA\ishikawa\setup\id_rsa.pub C:\Ripcord\.ssh\
 Set-Location C:\Ripcord\code
 git config --system core.sshCommand "ssh -F /c/Ripcord/.ssh/config"
 git config --global http.sslVerify false
+
+if (Test-Path "C:\Ripcord\code\rip-app-utility") {
+    Remove-Item -Recurse -Force -Path "C:\Ripcord\code\rip-app-utility"
+}
 git clone git@github.com:fujifilm-ripcord/rip-app-utility.git
 Set-Location C:\Ripcord\code\rip-app-utility
 git fetch
