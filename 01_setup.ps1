@@ -30,12 +30,7 @@ if (-Not (Find-Command $cmd)){
     choco upgrade chocolatey
 }
 
-# Git
-$cmd = "git.exe"
-if (-Not (Find-Command $cmd)){
-    Write-Host "Installing git from Chocolatey..."
-    choco install git -y
-} else {
-    choco upgrade git -y
-}
-
+# Install essential tools
+choco install git -y
+choco install notepadplusplus -y
+choco install teamviewer -y
