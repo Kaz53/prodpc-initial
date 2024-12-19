@@ -47,7 +47,7 @@ Copy-Item \\nki-fs01\EXCP_DATA\ishikawa\setup\id_rsa.pub C:\Ripcord\.ssh\
 
 # Setup rip-app repository
 Set-Location C:\Ripcord\code
-git config --system core.sshCommand "ssh -F /c/Ripcord/.ssh/config"
+git config --global core.sshCommand "ssh -F C:\\Ripcord\\.ssh\\config"
 git config --global http.sslVerify false
 
 if (Test-Path "C:\Ripcord\code\rip-app-utility") {
@@ -84,3 +84,12 @@ Set-Location C:\Users\kazuki.ishikawa\Projects\dotfile
 
 # Setup fluentbit
 Start-Process C:\Ripcord\code\rip-app-utility\tools\fluentbit\fluentbit_setup.bat -Wait
+
+# Git
+$cmd = "git.exe"
+$path = "~\.gitconfig"
+if (Test-Path $path)
+{
+    Remove-Item -Path $path -Force
+}
+New-Item -ItemType SymbolicLink -Value C:\Users\kazuki.ishikawa\Projects\dotfile\git\.gitconfig_client -Path $path

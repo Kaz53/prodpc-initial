@@ -34,3 +34,6 @@ if (-Not (Find-Command $cmd)){
 choco install git -y
 choco install notepadplusplus -y
 choco install teamviewer -y
+
+Write-Host "You need to re-launch the poewrshell"
+Start-Sleep 10
