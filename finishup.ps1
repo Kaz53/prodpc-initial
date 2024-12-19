@@ -22,6 +22,11 @@ git clone git@github.com:Kaz53/dotfile.git
 Set-Location C:\Users\kazuki.ishikawa\Projects\dotfile
 .\win-setup.ps1
 
+# Setup rip-app repository
+Set-Location C:\Ripcord\code
+git config --global core.sshCommand "ssh -F C:\\Ripcord\\.ssh\\config"
+git config --global http.sslVerify false
+
 # Setup fluentbit
 Start-Process C:\Ripcord\code\rip-app-utility\tools\fluentbit\fluentbit_setup.bat -Wait
 
