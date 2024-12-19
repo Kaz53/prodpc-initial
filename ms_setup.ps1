@@ -27,6 +27,11 @@ foreach ($Folder in $FolderList) {
 # Copy common files
 Copy-Item C:\Ripcord\code\nakai-scanapp-settings\MS\* C:\Ripcord\settings\ -Recurse -Force
 
+# Setup barcode driver
+Copy-Item \\nki-fs01\EXCP_DATA\ishikawa\setup\CH341SER.zip $HOME\Downloads\
+Expand-Archive -Path $HOME\Downloads\CH341SER.zip $HOME\Downloads\
+explorer.exe $HOME\Downloads\CH341SER\
+
 Write-Host "Setup complete. Ready to install ScanApp."
 Start-Sleep 3
 
