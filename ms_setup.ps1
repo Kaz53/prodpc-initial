@@ -28,4 +28,18 @@ foreach ($Folder in $FolderList) {
 Copy-Item C:\Ripcord\code\nakai-scanapp-settings\MS\* C:\Ripcord\settings\ -Recurse -Force
 
 Write-Host "Setup complete. Ready to install ScanApp."
-Start-Sleep 10
+Start-Sleep 3
+
+Write-Host "Setup stream counter? [Y/n]"
+$answer = Read-Host
+if ($answer -ne "Y")
+{
+    exit
+}
+
+choco install streamdeck -y
+Set-Location C:\Ripcord\code
+git clone git@github.com:MoffettData/stream-counter.git
+Set-Location C:\Ripcord\code\rip-app-utility\tools\stream-counter\
+. stream-counter_setup.ps1
+

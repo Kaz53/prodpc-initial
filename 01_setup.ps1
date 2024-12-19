@@ -34,6 +34,11 @@ if (-Not (Find-Command $cmd)){
 choco install git -y
 choco install notepadplusplus -y
 choco install teamviewer -y
+choco install googlechrome -y
+
+Copy-Item \\nki-fs01\EXCP_DATA\installer\LibreOffice_24.2.5_Win_x86-64.msi $HOME\Downloads\
+Start-Process -FilePath $HOME\Downloads\LibreOffice_24.2.5_Win_x86-64.msi -Wait
+
 
 Write-Host "You need to re-launch the poewrshell"
 Start-Sleep 10
