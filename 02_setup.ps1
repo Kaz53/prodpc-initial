@@ -1,5 +1,6 @@
 if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole("Administrators")) {
-    Start-Process powershell.exe "-File `"$PSCommandPath`"" -Verb RunAs; exit }
+    Start-Process powershell.exe "-File `"$PSCommandPath`"" -Verb RunAs; exit 
+}
 
 function Find-Command($cmd){
     if (Get-Command * | Where-Object { $_.Name -match $cmd }) {
@@ -85,11 +86,3 @@ Set-Location C:\Users\kazuki.ishikawa\Projects\dotfile
 # Setup fluentbit
 Start-Process C:\Ripcord\code\rip-app-utility\tools\fluentbit\fluentbit_setup.bat -Wait
 
-# Git
-$cmd = "git.exe"
-$path = "~\.gitconfig"
-if (Test-Path $path)
-{
-    Remove-Item -Path $path -Force
-}
-New-Item -ItemType SymbolicLink -Value C:\Users\kazuki.ishikawa\Projects\dotfile\git\.gitconfig_client -Path $path
